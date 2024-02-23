@@ -31,23 +31,28 @@ public class MyCustomAdapter extends ArrayAdapter<Planet> {
         ImageView planetImg;
     }
 
+    //getview() -create and return view for a specific item in the list
+
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        //get planet object for current position
         Planet planets=getItem(position);
+        //inflate layout
         MyViewHolder myViewHolder;
         final View result;
 if(convertView==null){
     myViewHolder=new MyViewHolder();
     LayoutInflater inflater=LayoutInflater.from(getContext());
     convertView=inflater.inflate(R.layout.item_list_layout,parent,false);
-
+//finding views
     myViewHolder.planetName=(TextView) convertView.findViewById(R.id.planet_name);
     myViewHolder.moonCount=(TextView) convertView.findViewById(R.id.moonCount);
     myViewHolder.planetImg=(ImageView) convertView.findViewById(R.id.imageView);
     result=convertView;
     convertView.setTag(myViewHolder);
 }else{
+    //view is recycled-reusing -getTag()
     myViewHolder=(MyViewHolder)convertView.getTag();
     result=convertView;
 }

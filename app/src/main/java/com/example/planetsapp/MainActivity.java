@@ -9,7 +9,15 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-
+/*
+* 1. create item_list_layout
+* 2. activity_main list view
+* 3. create model class -Planet.java- it defines the attributes and behaviour associated with each item- holds data
+* 4. create adapter using extends ArrayAdapter<Planet>
+* 5. initialize listview in main activity.java and arraylist-data structure to store and manipulate data
+* 6. add the planet data list to arraylist
+* 7. initialize array adapter in main activity and set adapter to listview
+* */
 public class MainActivity extends AppCompatActivity {
     ListView listView;
     ArrayList<Planet> planetsArrayList;
@@ -40,9 +48,9 @@ public class MainActivity extends AppCompatActivity {
         planetsArrayList.add(planet6);
         planetsArrayList.add(planet7);
         planetsArrayList.add(planet8);
-adapter=new MyCustomAdapter(planetsArrayList,getApplicationContext());
-listView.setAdapter(adapter);
-//click list items
+        adapter=new MyCustomAdapter(planetsArrayList,getApplicationContext());
+        listView.setAdapter(adapter);
+          //click list items
      listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
          @Override
          public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
